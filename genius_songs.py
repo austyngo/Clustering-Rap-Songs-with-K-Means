@@ -42,20 +42,20 @@ def main():
 if __name__ == '__main__':
     artist_names = main()
 
-token = "MHaTpYc63adOgs8VLaKGVbM6Xj8V2z6BbSAnEcvpsESVApxvM1VIKtkkFW4m8zZh"
+token = "<use your Genius API token>"
 api = lyricsgenius.Genius(token, remove_section_headers=True,
-                 skip_non_songs=True, excluded_terms=["Remix", "Edit"], timeout = 10000, sleep_time=0.4)
+                 skip_non_songs=True, excluded_terms=["Remix", "Edit"], timeout = 10000, sleep_time=0.4) #exclude songs that include the terms "remix" and "edit"
 
 
-#Starting the song search for the artists in question and seconds count
+#Starting the song search for each artist
 query_number = 0
 time1 = time.time()
 tracks = []
 
-
 for artist in artist_names:
     query_number += 1
     #Empty lists for information for each song
+    #I edited the LyricsGenius package code to also retrieve record label information for each song
     artists, titles, albums, years, lyrics, label, writers = [], [], [], [], [], [], []
     print('\nQuery number:', query_number)
     #Search for max_songs per artist = n and sort them by popularity
@@ -109,3 +109,5 @@ print('\nFinal tracklist of', query_number, 'artists finished in', round(time3 +
 
 print(tracklist)
 tracklist.to_csv('rap_songs.csv', encoding = 'utf-8', index=False)
+
+#inspired by https://github.com/johnwmillr/LyricsGenius
