@@ -3,7 +3,6 @@ import pandas as pd
 import time
 from urllib.request import Request, urlopen, quote
 from bs4 import BeautifulSoup
-from difflib import SequenceMatcher as sm #similarity of lyrics
 import requests
 import json
 import os
