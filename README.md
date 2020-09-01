@@ -31,6 +31,7 @@ X.shape
 
 ## Unsupervised learning using KMeans Clustering
 It was found that 5 clusters was the optimal number of clusters to group the songs in based on their lyrics. This was determined by calculating the mean silhouette score of the clusters. Although not very high, the mean score was the greatest when the songs were split into 5 clusters. More detail on this methodology can be found in the [Jupyter Notebook](https://github.com/austyngo/rap_songs/blob/master/rap_genius.ipynb).
+
 <img src= "/images/best cluster.png">
            
 ## Results Analysis
