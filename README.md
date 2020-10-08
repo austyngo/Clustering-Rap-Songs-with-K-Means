@@ -42,7 +42,7 @@ df = df.dropna(subset = ['lyrics'])
  
 ## Basic Text Analysis
 Ranking artists by average words per song.
-<img src="/images/top words.png">
+<img src="/images/top artists mean words.png">
 
 <img src="/images/top artists unique words.png">
 
