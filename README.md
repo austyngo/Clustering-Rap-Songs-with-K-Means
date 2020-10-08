@@ -1,4 +1,4 @@
-# rap_songs
+# Text Classification of Rap Songs with K-Means
 As an avid fan of rap music, I am very aware of the various themes mentioned in songs. Despite using similar language and slang, these themes vary greatly and range from drugs, gangs, and sex to social commentary, working hard, and introspective thinking. The former group of themes definitely seems to gain more exposure in mainstream media. 
 
 This project will be an attempt to classify rap songs based on the topic of their lyrics using the K-Means clustering algorithm. There is an extra layer of challenge due to the language and slang used as well as an unlabled target dataset, making this an unsupervised learning case.
