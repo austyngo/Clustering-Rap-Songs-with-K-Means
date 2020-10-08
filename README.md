@@ -33,21 +33,6 @@ df['lyrics'] = df['lyrics'].str.lower()
 df = df.dropna(subset = ['lyrics'])
 ```
 
-## Cleaning up text:
-  * Convert all charcters to lowercase
-  * Remove punctuation
-  * Remove stop words
-  * Remove numbers
-  * Remove words containing only 1 character
-  * Lemmatize words (converting words to their root forms)
- 
-## Basic Text Analysis
-Ranking artists by average words per song.
-
-<img src="/images/top artists mean words.png">
-
-<img src="/images/top artists unique words.png">
-
 ## Corpus Preprocessing
 The first step in processing text data is to lemmatize all words. Lemmatization means to convert all words into their root words, for example, "waiting" is changed to "wait." This ensures words in diffrent forms are all grouped as one and not counted as multiple features.
 
@@ -170,7 +155,10 @@ vectorizer = TfidfVectorizer(min_df=0.02, max_df=0.5)
 X = vectorizer.fit_transform(df['lyrics_clean']).toarray()
 X.shape
 ```
+
+```
 (19027, 1294)
+```
 
 ## Reducing Dimensionality
 Since we are dealing with a very wide dataset of 1294 features, reducing dimensionality with Principal Component Analysis may be helpful prior to training a model on it. Plotting a chart that visualizes the cumulative explained variance can help determine an acceptable number of features to use.
@@ -299,6 +287,8 @@ for clus in n_clus:
                  fontsize=12, fontweight='bold')
 plt.show()
 ```
+
+```
 For 3 clusters, the average silhouette_score is : 0.01070036652343197
 
 For 3 clusters, the mean of each cluster is: [0.03392209857830226, -0.012662749647418184, 0.002245414621005441]
@@ -322,6 +312,7 @@ For 7 clusters, the mean of each cluster is: [-0.006437044762945363, -0.01626247
 For 8 clusters, the average silhouette_score is : 0.008396996974968688
 
 For 8 clusters, the mean of each cluster is: [0.06126718531068541, 0.027375738942404183, -0.013547206805411625, 0.007329967635351381, -0.005462949821924696, 0.02196968218990305, 0.028004014560878625, 0.12672242199237016]
+```
 
 <img src= "/images/silhouette.png">
 
@@ -370,6 +361,7 @@ plotWords(dfs, n_feats)
 ```
 <img src= "/images/clus words.png">
 As expected, given the low sihlouette scores, there is quite a bit of overlap of words between clusters. There does not seem to be clear lyric topics for each cluster. Next, we can examine the songs that are grouped into each cluster.
+
 ```python
 for clus in df['cluster'].unique():
     df_clus = df.loc[df['cluster'] == clus]
@@ -378,6 +370,7 @@ for clus in df['cluster'].unique():
 ```
 <img src= "/images/clus songs.png">
 It may be difficult to discern the differences between the clusters by only looking at song names without knowing nearly every song in the dataset. Another option is to examine the distrubution of cluster labels across particular artists.
+
 ```python
 artists_1 = ['J. Cole', 'Kendrick Lamar', '2Pac', 'Talib Kweli', 'Common', 'Nas'] 
 
@@ -385,7 +378,9 @@ artist_clus_1 = df[df['artist'].isin(artists_1)]
 plt.figure(figsize=(9, 4))
 sns.countplot(x='artist', hue='cluster', data=artist_clus_1).set_title('Artist Sample Group 1 Cluster Distribution')
 ```
+
 <img src= "/images/art1.png">
+
 ```python
 artists_2 = ['Future', 'Young Thug', 'Roddy Ricch', 'YNW Melly', '21 Savage', 'Gucci Mane']
 
