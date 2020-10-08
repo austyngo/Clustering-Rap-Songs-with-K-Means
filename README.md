@@ -3,13 +3,14 @@ As an avid fan of rap music, I am very aware of the various themes mentioned in 
 
 This project will be an attempt to classify rap songs based on the topic of their lyrics using the K-Means clustering algorithm. There is an extra layer of challenge due to the language and slang used as well as an unlabled target dataset, making this an unsupervised learning case.
 
-**genius_songs.py:** 
-Retrive list of artists and their songs using the genius.com API and the LyricsGenius wrapper. Will require your own API token.
+[**genius_songs.py**](https://github.com/austyngo/Clustering-Rap-Songs-with-K-Means/blob/master/rap_genius.ipynb)
 
+Retrive list of artists and their songs using the genius.com API and the LyricsGenius wrapper. Will require your own API token.
 The song list and lyrics retrieved are stored in a .csv file. 
 
-**rap_genius.ipynb:** 
-Jupyter Notebook performing NLP and clustering on rap song lyrics
+[**rap_genius.ipynb**](https://github.com/austyngo/Clustering-Rap-Songs-with-K-Means/blob/master/rap_genius.ipynb) 
+
+Jupyter Notebook performing Natrual Language Processing and clustering on rap song lyrics.
 
 #### Import Basic Data Analysis Packages
 ```python
@@ -42,6 +43,7 @@ df = df.dropna(subset = ['lyrics'])
  
 ## Basic Text Analysis
 Ranking artists by average words per song.
+
 <img src="/images/top artists mean words.png">
 
 <img src="/images/top artists unique words.png">
