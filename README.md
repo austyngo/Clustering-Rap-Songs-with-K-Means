@@ -174,6 +174,7 @@ plt.ylabel('cumulative explained variance')
 ```
 <img src= "/images/pca.png">
 We will use 500 features, as it accounts for about 70% of the total variance in the dataset.
+
 ```python
 n_feat = 500
 pca_2 = PCA(n_components = n_feat)
@@ -212,6 +213,7 @@ plt.show()
 <img src= "/images/elbow.png">
 
 As we can see in the two elbow methods, 8 clusters seems to be the optimal amount. The sum of squared distance and distortion begins to decrease at a slower rate after 8 clusters. However, distortion and inertia do not describe the individual quality of the clusters, such as the amount of overlap and separability. Another method to determine the optimal clusters is to calculate the average silhouette score of the clusters as well as examining the silhouette score of each individual cluster.
+
 ```python
 from sklearn.metrics import silhouette_samples, silhouette_score
 import matplotlib.cm as cm
