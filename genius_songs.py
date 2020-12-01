@@ -54,8 +54,8 @@ tracks = []
 for artist in artist_names:
     query_number += 1
     #Empty lists for information for each song
-    #I edited the LyricsGenius package code to also retrieve record label information for each song
-    artists, titles, albums, years, lyrics, label, writers = [], [], [], [], [], [], []
+    artists, titles, albums, years, lyrics, writers = [], [], [], [], [], []
+    #label = []  I edited the LyricsGenius package code to also retrieve record label information for each song
     print('\nQuery number:', query_number)
     #Search for max_songs per artist = n and sort them by popularity
     artist = api.search_artist(artist, max_songs = 150, sort='popularity')
@@ -88,8 +88,8 @@ for artist in artist_names:
                 lyrics.append(song.lyrics)
             except TypeError:
                 lyrics.append('NA')
-            print('Now adding: label')
-            label.append(song.label)
+            #print('Now adding: label')
+            #label.append(song.label)
             print('Now adding: Writers')
             try:
                 writers.append(song.writer_artists)
