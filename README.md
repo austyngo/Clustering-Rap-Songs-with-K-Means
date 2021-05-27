@@ -20,7 +20,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 %matplotlib inline
 plt.style.use('seaborn')
-df = pd.read_csv(r"C:\Users\austi\Documents\rap_genius\rap_songs.csv").convert_dtypes()
+df = pd.read_csv(r"rap_songs.csv").convert_dtypes()
 ```
 
 #### Removing unwanted symbols in the dataset
